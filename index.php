@@ -1,3 +1,8 @@
+<?php    /*visualisation des erreurs*/
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <?php include 'connexion_db.php'; ?>
 <html lang="fr">
@@ -40,7 +45,21 @@
 
                 <br><br>
                 <input type="submit" name="rechercher" value="rechercher">
-            </div>
+            </form>
+            <?php
+
+            $req = $db->prepare('SELECT COUNT(*) AS total FROM Offre_voyage');
+            $req->execute();
+            $nb_offre = $req->fetch();
+            $nb_aleatoire_offre = rand(1,$nb_offre['total']);
+
+            $req = $db->prepare('SELECT img, description_offre FROM Offre_voyage WHERE id_offre = :offre');
+            $req->execute([':offre'=>$nb_aleatoire_offre]);
+            $reponse_req = $req->fetch();
+            ?>       
+
+            <img src="assets/<?=$reponse_req['img']?>" id="img_presentation" alt="img d'example">
+            <p><?=$reponse_req['description_offre']?></p>
         </main>
     </body>
 </html>

@@ -34,7 +34,7 @@
                 </label>
 
                 <label>
-                    <input type="text" placeholder="mot de passe" name="mdp">
+                    <input type="password" placeholder="mot de passe" name="mdp">
                 </label>
 
                 <br><br>
