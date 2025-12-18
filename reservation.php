@@ -3,7 +3,9 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Reservation Horizon</title>
+        <link rel="icon" href="logo.png">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -16,5 +18,9 @@
                 <a href="se_connecter.php">Se connecter</a>
             </nav>
         </header>
+        <main>
+            
+            </form>
+        </main>
     </body>
 </html>
