@@ -92,8 +92,8 @@ include 'connexion_db.php';
                         <img src="assets/<?=$reponse_req['img']?>" id="img_presentation" alt="img d'example">
                         <p><?=$reponse_req['description_offre']?></p>
                         <form method="POST" action="reservation.php">
-                            <input type="hidden" name="" value="<?=$offre1?>">
-                            <input type="submit" name="reserver_offre1" value="reserver">
+                            <input type="hidden" name="offre" value="<?=$offre1?>">
+                            <input type="submit" name="reserver_offre" value="reserver">
                         </form>
                         
                     </div>
@@ -114,8 +114,8 @@ include 'connexion_db.php';
                         <img src="assets/<?=$reponse_req['img']?>" id="img_presentation" alt="img d'example">
                         <p><?=$reponse_req['description_offre']?></p>
                         <form method="POST" action="reservation.php">
-                            <input type="hidden" name="" value="<?=$offre2?>">
-                            <input type="submit" name="reserver_offre2" value="reserver">
+                            <input type="hidden" name="offre" value="<?=$offre2?>">
+                            <input type="submit" name="reserver_offre" value="reserver">
                         </form>
                     </div>
                     <?php
@@ -135,7 +135,7 @@ include 'connexion_db.php';
                         echo "<img src='assets/",$rech_via_pays['img'],"'alt='img par rapport à la recherche'>";
                         echo "<p>",$rech_via_pays['description_offre'],"</p>";
                         echo "<form method='POST' action='reservation.php'>";
-                        echo "<input type='hidden' name='' value='<?=$offre_recherche?>'>";
+                        echo "<input type='hidden' name='offre' value='<?=$offre_recherche?>'>";
                         echo "<input type='submit' name='reserver_offre1' value='reserver'>";
                         echo "</form>";
                         echo '</div>';

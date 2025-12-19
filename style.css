@@ -30,6 +30,7 @@ h1{
 }
 
 header h2{
+    margin: 25px 0 0 150px;
     display: grid;
     grid-row: 2/3;
     grid-column: 1/-1;

@@ -141,7 +141,6 @@ if (isset($_POST['valider_reservation'])) {
             
             <?php 
                 endif; ?>
-            
         </main>
     </body>
 </html>
