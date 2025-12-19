@@ -4,7 +4,10 @@ error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
-<?php include 'connexion_db.php'; ?>
+<?php
+include 'connexion_db.php';
+
+?>
 <html lang="fr">
     <head>
         <meta charset="utf-8">
@@ -18,7 +21,16 @@ error_reporting(E_ALL);
             <a href="index.php"><h1>Horizon</h1></a>
             <h2>Vos vacances, nous on a la vision!</h2>
             <nav>
-                <a href="se_connecter.php">Se connecter</a>
+                <?php
+                $connecté = 0;
+                if($connecté==0){
+                    echo"<a href='se_connecter.php'>Se connecter</a>";
+                }
+                else{
+                    echo "<p>connecté en tant que : </p>";
+                }
+                ?>
+                
             </nav>
             <form method="POST" action="index.php">
                 <p>Planification des vacances:</p>
@@ -67,13 +79,15 @@ error_reporting(E_ALL);
                     $req = $db->prepare('SELECT * FROM Offre_voyage WHERE id_offre = :offre');
                     $req->execute([':offre'=>$nb_aleatoire_offre]);
                     $reponse_req = $req->fetch();
-                    $offre1 = $reponse_req['img'];
+                    $offre1 = $reponse_req['id_offre'];
+                    echo $offre1;
                     
                     ?>
                     <div class="afficher_offre" id="offre1">
                         <img src="assets/<?=$reponse_req['img']?>" id="img_presentation" alt="img d'example">
                         <p><?=$reponse_req['description_offre']?></p>
-                        <form action="reservation.php">
+                        <form method="POST" action="reservation.php">
+                            <input type="hidden" name="" value="<?=$offre1?>">
                             <input type="submit" name="reserver_offre1" value="reserver">
                         </form>
                         
@@ -85,16 +99,18 @@ error_reporting(E_ALL);
                         $new_nb_aleatoire_offre +=1;
                     }
 
-                    $req = $db->prepare('SELECT img, description_offre FROM Offre_voyage WHERE id_offre = :offre');
+                    $req = $db->prepare('SELECT * FROM Offre_voyage WHERE id_offre = :offre');
                     $req->execute([':offre'=>$new_nb_aleatoire_offre]);
                     $reponse_req = $req->fetch();
-                    $offre2 = $reponse_req['img'];
+                    $offre2 = $reponse_req['id_offre'];
+                    echo $offre2;
                     ?>
 
                     <div class="afficher_offre" id="offre2">
                         <img src="assets/<?=$reponse_req['img']?>" id="img_presentation" alt="img d'example">
                         <p><?=$reponse_req['description_offre']?></p>
-                        <form action="reservation.php">
+                        <form method="POST" action="reservation.php">
+                            <input type="hidden" name="" value="<?=$offre2?>">
                             <input type="submit" name="reserver_offre2" value="reserver">
                         </form>
                     </div>
@@ -107,13 +123,15 @@ error_reporting(E_ALL);
                     $req = $db->prepare($sql);
                     $req->execute($parametres);
                     $rech_via_pays = $req->fetch();
+                    $offre_recherche = $rech_via_pays['id_offre'];
 
                     /*affiche l'imafe et la description associée*/
                     if(isset($rech_via_pays['img'])){
                         echo "<div class='afficher_offre' id='1'>";
                         echo "<img src='assets/",$rech_via_pays['img'],"'alt='img par rapport à la recherche'>";
                         echo "<p>",$rech_via_pays['description_offre'],"</p>";
-                        echo "<form action='reservation.php'>";
+                        echo "<form method='POST' action='reservation.php'>";
+                        echo "<input type='hidden' name='' value='<?=$offre_recherche?>'>";
                         echo "<input type='submit' name='reserver_offre1' value='reserver'>";
                         echo "</form>";
                         echo '</div>';
