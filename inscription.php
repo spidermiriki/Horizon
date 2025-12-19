@@ -1,3 +1,9 @@
+<?php    /*visualisation des erreurs*/
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+include 'connexion_db.php';
+?>
 <!DOCTYPE html>
 <?php include 'connexion_db.php'; ?>
 <html lang="fr">
@@ -5,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Inscription</title>
-        <link rel="icon" href="logo.png">
+        <link rel="icon" href="assets/logo.png">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
