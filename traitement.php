@@ -12,11 +12,11 @@ include 'connexion_db.php';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Traitement</title>
         <link rel="icon" href="assets/logo.png">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="CSS/style.css">
     </head>
     <body>
         <header>
-            <h1>Horizon</h1>
+            <a href="index.php"><h1>Horizon</h1></a>
             <h2>Vos vacances, nous on a la vision!</h2>
             <nav>
                 <a href="index.php">Acceuil</a>

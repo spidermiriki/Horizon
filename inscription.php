@@ -5,30 +5,23 @@ error_reporting(E_ALL);
 include 'connexion_db.php';
 ?>
 <!DOCTYPE html>
-<?php include 'connexion_db.php'; ?>
 <html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Inscription</title>
         <link rel="icon" href="assets/logo.png">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="CSS/style.css">
     </head>
     <body>
         <header>
-            <h1>Horizon</h1>
+            <a href="index.php"><h1>Horizon</h1></a>
             <h2>Vos vacances, nous on a la vision!</h2>
-            <nav>
-                <a href="index.php">Acceuil</a>
-                <a href="reservation.php">Reservation</a>
-                <a href="se_connecter.php">Se connecter</a>
-                <a href="inscription.php">S'insrire</a>
-            </nav>
         </header>
         <main>
-            <form method="POST" action="traitement.php">
+            <form method="POST" action="index.php">
                 <label>
-                    <input type="text" placeholder="Enter votre prenom" name="prenom">
+                    <input type="text" placeholder="Enter votre prenom" name="prenom" >
                 </label>
 
                 <label>

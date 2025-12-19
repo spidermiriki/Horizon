@@ -22,13 +22,19 @@ include 'connexion_db.php';
             <h2>Vos vacances, nous on a la vision!</h2>
             <nav>
                 <?php
-                $connecté = 0;
+                if(isset($_POST['prenom'])){
+                    $connecté = 1;
+                }
+                else{
+                    $connecté = 0;
+                }
                 if($connecté==0){
                     echo"<a href='se_connecter.php'>Se connecter</a>";
                 }
                 else{
-                    echo "<p>connecté en tant que : </p>";
+                    echo "<p>connecté en tant que : ",$_POST['prenom'],"</p>";
                 }
+                
                 ?>
                 
             </nav>
@@ -80,7 +86,6 @@ include 'connexion_db.php';
                     $req->execute([':offre'=>$nb_aleatoire_offre]);
                     $reponse_req = $req->fetch();
                     $offre1 = $reponse_req['id_offre'];
-                    echo $offre1;
                     
                     ?>
                     <div class="afficher_offre" id="offre1">
@@ -103,7 +108,6 @@ include 'connexion_db.php';
                     $req->execute([':offre'=>$new_nb_aleatoire_offre]);
                     $reponse_req = $req->fetch();
                     $offre2 = $reponse_req['id_offre'];
-                    echo $offre2;
                     ?>
 
                     <div class="afficher_offre" id="offre2">

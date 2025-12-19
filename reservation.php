@@ -55,7 +55,6 @@ if (isset($_POST['valider_reservation'])) {
             <a href="index.php"><h1>Horizon</h1></a>
             <h2>Vos vacances, nous on a la vision!</h2>
             <nav>
-                <a href="index.php">Accueil</a>
                 <a href="se_connecter.php">Se connecter</a>
             </nav>
         </header>
