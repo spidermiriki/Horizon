@@ -67,6 +67,10 @@ if (isset($_POST['valider_reservation'])) {
                     
                     <h3>Récapitulatif :</h3>
                     <ul style="list-style: none; padding: 0;">
+                        <?php
+                        $pays_offre  = $_POST['pays'] ?? '';
+                        $ville_offre = $_POST['ville'] ?? '';
+                        ?>
                         <li>Destination : <strong><?= $pays_offre ?><?= !empty($ville_offre) ? ' - ' . $ville_offre : '' ?></strong></li>
                         <li>Email : <?= $email ?></li>
                         <li>Départ : <?= date('d/m/Y', strtotime($date_depart)) ?></li>
